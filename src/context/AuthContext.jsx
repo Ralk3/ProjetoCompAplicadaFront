@@ -6,8 +6,18 @@ export function AuthProvider({ children }) {
   const [user, setUser] = useState(null) // {email: '...'}
 
   useEffect(() => {
-    const token = localStorage.getItem('sf_token')
-    const email = localStorage.getItem('sf_email')
+    let token = localStorage.getItem('sf_token')
+    let email = localStorage.getItem('sf_email')
+
+    //Modo dev: simula login automático
+    if (!token && import.meta.env.DEV) {
+      token = 'dev-token'
+      email = 'dev@servicofacil.local'
+      localStorage.setItem('sf_token', token)
+      localStorage.setItem('sf_email', email)
+      console.log('Modo desenvolvimento: login automático habilitado')
+    }
+
     if (token && email) setUser({ email })
   }, [])
 
