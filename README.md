@@ -1,20 +1,17 @@
-# Serviço Fácil - Front (Modelo React + Vite)
-
+# Serviço Fácil - Front React + Vite
 ## Como rodar
-1. Abra o projeto no VSCode.
-2. No terminal: `npm install`
+1. No terminal: `npm install`
 3. Rodar: `npm run dev`
 4. Abra o endereço que aparecer (ex.: http://localhost:5173).
 
-## Estrutura
-- `src/pages/*/` → cada página tem seu próprio `.jsx` e `.css` com **namespace** (sf-home-*, sf-login-*, etc.) para evitar conflitos.
-- `src/components/HeaderPublic.jsx` → topo público (Home/Política/Login/Cadastro).
-- `src/components/HeaderPrivate.jsx` → topo interno (Serviços/Anunciar/Pagamentos/Perfil).
-- `src/context/AuthContext.jsx` → autenticação fake (localStorage) para proteger rotas.
-- `src/router/ProtectedRoute.jsx` → guarda de rotas privadas.
-- `src/styles/globals.css` → estilos base/variáveis.
+## Estrutura Planejada
+- `src/pages/*/` cada página tem seu próprio `.jsx` e `.css` com **namespace** (sf-home-*, sf-login-*, etc.) para evitar conflitos.
+- `src/components/HeaderPublic.jsx` topo público (Home/Política/Login/Cadastro).
+- `src/components/HeaderPrivate.jsx` topo interno (Serviços/Anunciar/Pagamentos/Perfil).
+- `src/context/AuthContext.jsx` autenticação fake (localStorage) para proteger rotas.
+- `src/router/ProtectedRoute.jsx` guarda de rotas privadas.
+- `src/styles/globals.css` estilos base (Evitaremos usar).
 
 ## Próximos passos
-- Conectar Login/Cadastro a sua API.
-- Popular listagens com dados reais.
-- Ajustar estilos conforme os Figma finais.
+- Participar da **call** toda **quinta-feira às 20h**. Link: https://meet.google.com/tna-kjkp-sxg
+- Desenvolver suas **tarefas semanalmente**, conforme combinado.  

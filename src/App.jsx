@@ -26,7 +26,7 @@ export default function App() {
 
         <Route element={<ProtectedRoute />}>
           <Route path="/app/servicos" element={<Services />} />
-          <Route path="/app/meus-servicos" element={<MyServices />} />
+          <Route path="/app/anunciar" element={<MyServices />} />
           <Route path="/app/pagamentos" element={<Payments />} />
           <Route path="/app/perfil" element={<Profile />} />
         </Route>
