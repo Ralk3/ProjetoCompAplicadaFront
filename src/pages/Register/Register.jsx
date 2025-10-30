@@ -1,8 +1,7 @@
-//teste
+//teste 2
 
 import React from 'react'
 
 export default function Register() {
   return <h1>Cadastro</h1>
 }
-
