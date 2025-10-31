@@ -5,6 +5,7 @@ import './Register.css'
 import { useAuth } from '../../context/AuthContext.jsx'
 
 export default function Register() {
+  // campos do formulário
   const [form, setForm] = useState({
     nome: '',
     sobrenome: '',
@@ -17,7 +18,8 @@ export default function Register() {
   const [error, setError] = useState('')
   const [loading, setLoading] = useState(false)
   const navigate = useNavigate()
-  const { loginWithCredentials } = useAuth()
+  const { loginWithCredentials } = useAuth() // para logar após cadastro
+
   const API_URL = import.meta.env.VITE_API_URL || ''
 
   function onChange(e) {
@@ -26,6 +28,7 @@ export default function Register() {
   }
 
   function validaSenha(s) {
+    // mínimo 8, ao menos uma letra e um número (mensagem do mock)
     return /^(?=.*[A-Za-z])(?=.*\d).{8,}$/.test(s)
   }
 
@@ -56,11 +59,16 @@ export default function Register() {
         body: JSON.stringify(payload)
       })
 
-      if (!res.ok) throw new Error('Falha no cadastro')
+      if (!res.ok) {
+        const text = await res.text().catch(() => '')
+        throw new Error(text || `Falha no cadastro (HTTP ${res.status})`)
+      }
+
+      // após cadastrar, autentica e vai para a área interna
       await loginWithCredentials(form.email, form.senha)
       navigate('/app/servicos', { replace: true })
     } catch (err) {
-      setError(err.message || 'Erro ao criar conta.')
+      setError(err.message || 'Não foi possível criar a conta.')
     } finally {
       setLoading(false)
     }
@@ -70,6 +78,7 @@ export default function Register() {
     <div className="sf-register">
       <HeaderPublic />
 
+      {/* cabeçalho interno */}
       <div className="sf-register__pagehead">
         <div className="sf-register__pagehead-inner">
           <div className="sf-register__titles">
@@ -80,7 +89,7 @@ export default function Register() {
       </div>
 
       <div className="sf-register__container">
-        {/* esquerda */}
+        {/* coluna esquerda: banner + chips */}
         <div className="sf-register__card sf-register__col">
           <img
             className="sf-register__banner"
@@ -91,26 +100,132 @@ export default function Register() {
             <button className="sf-register__chip sf-register__chip--ghost">Saiba mais</button>
           </div>
           <div className="sf-register__chips">
-            <span className="sf-register__chip">5000+ anúncios ativos</span>
+            <span className="sf-register__chip">5000+ anuncios ativos</span>
             <span className="sf-register__chip">Verificados e avaliados</span>
-            <span className="sf-register__chip">Atendimento rápido</span>
+            <span className="sf-register__chip">Atendimento rapido</span>
           </div>
         </div>
 
-        {/* direita */}
+        {/* coluna direita: formulário */}
         <div className="sf-register__card sf-register__col">
           <h2 className="sf-register__formtitle">Crie sua conta</h2>
+
           <form onSubmit={onSubmit} className="sf-register__form">
-            <label>Nome</label>
-            <input name="nome" value={form.nome} onChange={onChange} required />
-            <label>Email</label>
-            <input name="email" value={form.email} onChange={onChange} required />
-            <label>Senha</label>
-            <input name="senha" type="password" value={form.senha} onChange={onChange} required />
-            {error && <p>{error}</p>}
-            <button type="submit" disabled={loading}>{loading ? 'Criando...' : 'Criar conta'}</button>
+            <div className="sf-register__row">
+              <div className="sf-register__col2">
+                <label className="sf-register__label">Nome</label>
+                <div className="sf-register__field">
+                  <span className="sf-register__icon" aria-hidden>👤</span>
+                  <input
+                    className="sf-register__input"
+                    name="nome"
+                    placeholder="Seu nome"
+                    value={form.nome}
+                    onChange={onChange}
+                    required
+                  />
+                </div>
+              </div>
+              <div className="sf-register__col2">
+                <label className="sf-register__label">Sobrenome</label>
+                <div className="sf-register__field">
+                  <span className="sf-register__icon" aria-hidden>👤</span>
+                  <input
+                    className="sf-register__input"
+                    name="sobrenome"
+                    placeholder="Seu sobrenome"
+                    value={form.sobrenome}
+                    onChange={onChange}
+                    required
+                  />
+                </div>
+              </div>
+            </div>
+
+            <label className="sf-register__label">E-mail</label>
+            <div className="sf-register__field">
+              <span className="sf-register__icon" aria-hidden>✉️</span>
+              <input
+                className="sf-register__input"
+                type="email"
+                name="email"
+                placeholder="seuemail@exemplo.com"
+                value={form.email}
+                onChange={onChange}
+                required
+              />
+            </div>
+
+            <div className="sf-register__row">
+              <div className="sf-register__col2">
+                <label className="sf-register__label">CPF:</label>
+                <div className="sf-register__field">
+                  <span className="sf-register__icon" aria-hidden>🧳</span>
+                  <input
+                    className="sf-register__input"
+                    name="cpf"
+                    placeholder="CPF"
+                    value={form.cpf}
+                    onChange={onChange}
+                    required
+                  />
+                </div>
+              </div>
+              <div className="sf-register__col2">
+                <label className="sf-register__label">Celular:</label>
+                <div className="sf-register__field">
+                  <span className="sf-register__icon" aria-hidden>📱</span>
+                  <input
+                    className="sf-register__input"
+                    name="celular"
+                    placeholder="Celular"
+                    value={form.celular}
+                    onChange={onChange}
+                    required
+                  />
+                </div>
+              </div>
+            </div>
+
+            {/* opcional - PagSeguro */}
+            <label className="sf-register__label">Código Mercado Pago (opcional)</label>
+            <div className="sf-register__field">
+              <span className="sf-register__icon" aria-hidden>💳</span>
+              <input
+                className="sf-register__input"
+                name="codigoPagseguro"
+                type="number"
+                placeholder="Ex.: 123456789"
+                value={form.codigoPagseguro}
+                onChange={onChange}
+              />
+            </div>
+
+            <label className="sf-register__label">Senha</label>
+            <div className="sf-register__field">
+              <span className="sf-register__icon" aria-hidden>🔒</span>
+              <input
+                className="sf-register__input"
+                name="senha"
+                type="password"
+                value={form.senha}
+                onChange={onChange}
+                required
+              />
+            </div>
+            <p className="sf-register__hint">Mínimo 8 caracteres, com letra e número.</p>
+
+            {error && <div className="sf-register__error">{error}</div>}
+
+            <button className="sf-register__btn sf-register__btn--primary" type="submit" disabled={loading}>
+              {loading ? 'Criando...' : <>👤 Criar conta</>}
+            </button>
           </form>
         </div>
+      </div>
+
+      <div className="sf-register__footerbar">
+        <Link to="/politica-de-privacidade" className="sf-register__privacy">Política de privacidade</Link>
       </div>
     </div>
   )
