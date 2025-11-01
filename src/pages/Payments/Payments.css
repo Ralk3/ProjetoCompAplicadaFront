@@ -1,0 +1,83 @@
+/* ----------------------------------------------------------
+   PAGAMENTO.CSS — Estilo da página de pagamento (Serviço Fácil)
+   Autor: Julia / Projeto Faculdade
+   ---------------------------------------------------------- */
+
+/* ---------- Fonte e estilo base ---------- */
+@import url('https://fonts.googleapis.com/css2?family=intyter:wght@400;500;600&display=swap');
+
+:root {
+ --azul-principal: #2563eb;
+ --azul-escuro: #1e40af;
+ --vermelho: #ef4444;
+ --vermelho-hover: #dc2626;
+ --cinza-claro: #f5f7fb;
+ --cinza-borda: #d1d5db;
+ --texto-escuro: #1f2937;
+ --texto-suave: #4b5563;
+}
+
+* {
+ box-sizing: border-box;
+ margin: 0;
+ padding: 0;
+ font-family: 'inter', sans-serif;
+}
+
+body{
+    background-color: var(--cinza-claro);
+    color: var(--texto-escuro);
+}
+/* ----------------------------------------------------------
+   NAVBAR
+   ---------------------------------------------------------- */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items:center;
+  background-color: #fff;
+  padding:14px 60px;
+  box-shadow: 0 2 px 8px rgba(0, 0, 0.05);
+  position: sticky;
+  top:0 ;
+  z-index: 10;
+}
+.navbar .logo{
+   font-weight:600;
+   color: var(--azul-escuro);
+   font-size: 1.2rem;
+}
+
+.navbar ul{
+   list-style: none;
+   display: flex;
+   align-items: center;
+   gap: 20px;
+}
+
+.navbar a {
+   text-decoration: none;
+   color: var(--texto-escuro);
+   font-weight: 500;
+   transition: 0.2s ease;
+}
+
+.navbar a:hover,
+.navbar a:active{
+   color: var(--azul-principal);
+}
+
+.logout {
+   background: var(--vermelho);
+   color: #fff;
+   border: none;
+   padding: 6px 14px;
+   border-radius: 6px;
+   cursor: pointer;
+   font-weight: 500;
+   transition: 0.3s;
+}
+
+.logout:hover {
+   background: var(--vermelho);
+}
