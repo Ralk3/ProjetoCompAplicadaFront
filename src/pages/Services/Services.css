@@ -1,18 +1,37 @@
+/* ============================
+   Services Page – Week 3
+   Commit: feat: adiciona listagem de serviços e paginação
+   ============================ */
+
 .sf-services {
   font-family: Arial, sans-serif;
   background: #f5f7fb;
   color: #1b2a3a;
+  min-height: 100vh;
 }
 
 .sf-services__hero {
   background: #eef4fb;
   border-bottom: 1px solid #e3e8ef;
-  padding: 20px;
+  padding: 20px 0;
+}
+
+.sf-services__hero-inner {
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 0 16px;
 }
 
 .sf-services__hero-text h1 {
   color: #2f5177;
   margin-bottom: 8px;
+  font-size: 28px;
+}
+
+.sf-services__hero-text p {
+  color: #6b7a8c;
+  margin-bottom: 10px;
+  font-size: 15px;
 }
 
 .sf-services__search {
@@ -22,7 +41,16 @@
 
 .sf-services__input {
   flex: 1;
-  padding: 10px;
+  padding: 10px 12px;
+  border: 1px solid #e3e8ef;
+  border-radius: 8px;
+  font-size: 14px;
+  outline: none;
+}
+
+.sf-services__input:focus {
+  border-color: #2f5177;
+  box-shadow: 0 0 0 2px rgba(47, 81, 119, 0.2);
 }
 
 .sf-services__btn {
@@ -31,4 +59,91 @@
   color: #fff;
   border: none;
   border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.sf-services__btn:hover {
+  background: #24425f;
+}
+
+.sf-services__container {
+  max-width: 1140px;
+  margin: 20px auto;
+  padding: 0 16px;
+}
+
+.sf-services__list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.sf-services__item {
+  border: 1px solid #e3e8ef;
+  border-radius: 10px;
+  padding: 14px 16px;
+  background: #fff;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, .05);
+  transition: transform 0.1s ease, box-shadow 0.2s ease;
+  cursor: pointer;
+}
+
+.sf-services__item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, .08);
+}
+
+.sf-services__title {
+  font-size: 16px;
+  color: #1b2a3a;
+  margin-bottom: 4px;
+}
+
+.sf-services__desc {
+  color: #6b7a8c;
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+.sf-services__pager {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  margin-top: 20px;
+}
+
+.sf-services__pager button {
+  padding: 8px 12px;
+  border: 1px solid #e3e8ef;
+  border-radius: 8px;
+  background: #fff;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background 0.2s ease;
+}
+
+.sf-services__pager button:hover {
+  background: #f0f3f9;
+}
+
+.sf-services__pager button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.sf-services__pager span {
+  color: #6b7a8c;
+  font-size: 14px;
+}
+
+.sf-services__empty {
+  padding: 14px;
+  border: 1px dashed #e3e8ef;
+  border-radius: 8px;
+  color: #6b7a8c;
+  text-align: center;
+  background: #fff;
 }
