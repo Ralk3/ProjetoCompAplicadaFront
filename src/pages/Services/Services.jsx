@@ -8,6 +8,8 @@ export default function Services() {
   const [page, setPage] = useState(0)
   const [rows, setRows] = useState([])
   const [meta, setMeta] = useState({ totalPages: 1, number: 0 })
+  const [open, setOpen] = useState(false)
+  const [detail, setDetail] = useState(null)
 
   const API_URL = import.meta.env.VITE_API_URL || ''
   const token = localStorage.getItem('sf_token') || ''
@@ -23,8 +25,23 @@ export default function Services() {
 
   useEffect(() => { fetchPage() }, [nome, page])
 
-  const onSearch = (e) => { e.preventDefault(); setNome(query.trim()) }
-  const goTo = (p) => { if (p >= 0 && p < meta.totalPages) setPage(p) }
+  const onSearch = (e) => {
+    e.preventDefault()
+    setNome(query.trim())
+  }
+
+  const goTo = (p) => {
+    if (p >= 0 && p < meta.totalPages) setPage(p)
+  }
+
+  async function openDetail(id) {
+    setOpen(true)
+    const res = await fetch(`${API_URL}/servicos/${id}`, {
+      headers: { Authorization: `Bearer ${token}` }
+    })
+    const data = await res.json()
+    setDetail(data)
+  }
 
   return (
     <div className="sf-services">
@@ -35,6 +52,7 @@ export default function Services() {
           <div className="sf-services__hero-text">
             <h1>Encontre serviços perto de você</h1>
             <p>Explore categorias e encontre profissionais confiáveis.</p>
+
             <form className="sf-services__search" onSubmit={onSearch}>
               <input
                 className="sf-services__input"
@@ -54,7 +72,11 @@ export default function Services() {
         ) : (
           <div className="sf-services__list">
             {rows.map(item => (
-              <article key={item.id} className="sf-services__item">
+              <article
+                key={item.id}
+                className="sf-services__item"
+                onClick={() => openDetail(item.id)}
+              >
                 <h3 className="sf-services__title">{item.nome}</h3>
                 <p className="sf-services__desc">{item.descricao}</p>
               </article>
@@ -68,6 +90,31 @@ export default function Services() {
           <button disabled={page + 1 >= meta.totalPages} onClick={() => goTo(page + 1)}>Próximo</button>
         </div>
       </div>
+
+      {/* Modal de detalhes */}
+      {open && detail && (
+        <div className="sf-modal" role="dialog" aria-modal="true">
+          <div className="sf-modal__backdrop" onClick={() => setOpen(false)} />
+          <div className="sf-modal__panel">
+            <h3>{detail.nome}</h3>
+            <p>{detail.descricao}</p>
+
+            {detail.preco && (
+              <p className="sf-modal__price">
+                <strong>Preço:</strong> R$ {detail.preco.toFixed(2)}
+              </p>
+            )}
+
+            {detail.categoria && (
+              <p className="sf-modal__category">
+                <strong>Categoria:</strong> {detail.categoria}
+              </p>
+            )}
+
+            <button className="sf-modal__close" onClick={() => setOpen(false)}>Fechar</button>
+          </div>
+        </div>
+      )}
     </div>
   )
 }
