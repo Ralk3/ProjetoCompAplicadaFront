@@ -31,7 +31,35 @@ export default function Home() {
             </div>
           </div>
         </div>
-      </section>    
+      </section>  
+
+      <section className="sf-home__section">
+        <div className="sf-home__container">
+          <div className="sf-home__section-head">
+            <div>
+              <h2>Vitrines em destaque</h2>
+              <p className="sf-home__muted">Uma seleção de serviços populares na sua região</p>
+            </div>
+            <Link to="/app/servicos" className="sf-home__ver-todos">Ver todos</Link>
+          </div>
+
+          <div className="sf-home__grid-3">
+            {destaque.map((card) => (
+              <article key={card.id} className="sf-home__card">
+                <img src={card.img} alt={card.titulo} className="sf-home__card-img" />
+                <div className="sf-home__card-body">
+                  <div className="sf-home__card-top">
+                    <h3>{card.titulo}</h3>
+                    <span className="sf-home__price">R$ {card.preco}</span>
+                  </div>
+                  <p className="sf-home__muted">{card.desc}</p>
+                  <span className="sf-home__badge sf-home__badge--active">Ativo</span>
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>  
     </div>
   )
 }

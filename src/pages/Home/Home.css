@@ -85,3 +85,60 @@
   border-color: var(--border);
 }
 .sf-home__btn--light:hover { background: #f8f9fb; }
+
+.sf-home__section { padding: 30px 0 8px; }
+.sf-home__section-head {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+.sf-home__section-head h2 {
+  color: var(--primary);
+  font-size: 22px;
+  margin-bottom: 2px;
+}
+.sf-home__muted { color: var(--muted); }
+.sf-home__ver-todos {
+  color: var(--primary-600);
+  font-weight: 500;
+  font-size: 14px;
+}
+.sf-home__grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+.sf-home__card {
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--card);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  transition: transform .2s ease;
+}
+.sf-home__card:hover { transform: translateY(-3px); }
+.sf-home__card-img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  display: block;
+}
+.sf-home__card-body { padding: 12px; }
+.sf-home__card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+.sf-home__card-top h3 { font-size: 16px; color: var(--text); }
+.sf-home__price { color: var(--muted); font-weight: 700; font-size: 14px; }
+
+/* Badge “Ativo” */
+.sf-home__badge {
+  font-size: 12px;
+  padding: 4px 8px;
+  border-radius: 999px;
+  display: inline-block;
+}
+.sf-home__badge--active { background: #e6f6f2; color: #1abc9c; }
