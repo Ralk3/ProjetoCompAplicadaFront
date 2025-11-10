@@ -1,0 +1,144 @@
+.sf-home {
+  --primary: #2f5177;
+  --primary-600: #2f6aa6;
+  --text: #1b2a3a;
+  --muted: #6b7a8c;
+  --bg: #f5f7fb;
+  --card: #ffffff;
+  --border: #e3e8ef;
+  --radius: 14px;
+  --shadow: 0 8px 24px rgba(0,0,0,0.06);
+
+  color: var(--text);
+  background: var(--bg);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Ubuntu, 'Helvetica Neue', Arial, sans-serif;
+}
+
+.sf-home * { box-sizing: border-box; }
+
+.sf-home a { text-decoration: none; }
+
+.sf-home h1, .sf-home h2, .sf-home h3, .sf-home p { margin: 0; }
+
+.sf-home__container {
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+.sf-home__hero { position: relative; }
+.sf-home__hero-img {
+  width: 100%;
+  height: 420px;
+  object-fit: cover;
+  display: block;
+  border-bottom: 1px solid var(--border);
+}
+.sf-home__overlay {
+  margin-top: -90px;
+  padding: 22px;
+  border-radius: var(--radius);
+  background: rgba(255,255,255,.86);
+  backdrop-filter: blur(4px);
+  box-shadow: var(--shadow);
+}
+.sf-home__overlay h1 {
+  color: var(--primary);
+  margin-bottom: 6px;
+  font-size: 26px;
+  line-height: 1.3;
+}
+.sf-home__overlay p {
+  color: var(--muted);
+  margin-bottom: 14px;
+  font-size: 16px;
+}
+.sf-home__cta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.sf-home__btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 18px;
+  border-radius: 10px;
+  font-weight: 700;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: all .15s ease;
+}
+
+.sf-home__btn--primary,
+.sf-home__btn--primary:visited {
+  background: var(--primary);
+  color: #fff !important;            
+}
+.sf-home__btn--primary:hover { filter: brightness(1.06); }
+
+.sf-home__btn--light {
+  background: #fff;
+  color: var(--primary);
+  border-color: var(--border);
+}
+.sf-home__btn--light:hover { background: #f8f9fb; }
+
+.sf-home__section { padding: 30px 0 8px; }
+.sf-home__section-head {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+.sf-home__section-head h2 {
+  color: var(--primary);
+  font-size: 22px;
+  margin-bottom: 2px;
+}
+.sf-home__muted { color: var(--muted); }
+.sf-home__ver-todos {
+  color: var(--primary-600);
+  font-weight: 500;
+  font-size: 14px;
+}
+.sf-home__grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+.sf-home__card {
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--card);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  transition: transform .2s ease;
+}
+.sf-home__card:hover { transform: translateY(-3px); }
+.sf-home__card-img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  display: block;
+}
+.sf-home__card-body { padding: 12px; }
+.sf-home__card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+.sf-home__card-top h3 { font-size: 16px; color: var(--text); }
+.sf-home__price { color: var(--muted); font-weight: 700; font-size: 14px; }
+
+/* Badge “Ativo” */
+.sf-home__badge {
+  font-size: 12px;
+  padding: 4px 8px;
+  border-radius: 999px;
+  display: inline-block;
+}
+.sf-home__badge--active { background: #e6f6f2; color: #1abc9c; }
