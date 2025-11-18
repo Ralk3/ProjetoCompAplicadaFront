@@ -60,6 +60,17 @@ export default function Home() {
           </div>
         </div>
       </section>  
+       <section className="sf-home__categories">
+        <div className="sf-home__container">
+          <h2>Categorias populares</h2>
+          <p className="sf-home__muted">Descubra por tipo de serviço</p>
+          <div className="sf-home__chips">
+            {categorias.map((c) => (
+              <button key={c} className="sf-home__chip">{c}</button>
+            ))}
+          </div>
+        </div>
+      </section>
     </div>
   )
 }

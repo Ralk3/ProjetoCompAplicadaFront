@@ -142,3 +142,28 @@
   display: inline-block;
 }
 .sf-home__badge--active { background: #e6f6f2; color: #1abc9c; }
+
+.sf-home__categories {
+  background: #f0f4f9;
+  padding: 24px 0;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+.sf-home__categories h2 { font-size: 22px; color: var(--primary); }
+.sf-home__chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 10px;
+}
+.sf-home__chip {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 8px 14px;
+  font-weight: 500;
+  color: var(--text);
+  cursor: pointer;
+  transition: background .15s ease;
+}
+.sf-home__chip:hover { background: #f2f4f8; }
