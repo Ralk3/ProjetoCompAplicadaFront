@@ -16,3 +16,20 @@ export default function HeaderPrivate() {
   return (
     <header className="sf-header-private">
       <div className="sf-container sf-header-private__wrap">
+
+{/* Marca / logo */}
+        <Link
+          to="/app"
+          className="sf-header-private__brand"
+          onClick={closeMenu}
+          aria-label="Voltar para a página inicial"
+        >
+          <img
+            src={logo}
+            alt="Logo Serviço Fácil"
+            className="sf-header-private__logo-img"
+            width="50"
+            height="50"
+          />
+          <span className="sf-header-private__brand-text">Serviço Fácil</span>
+        </Link>
