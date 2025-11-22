@@ -88,3 +88,12 @@ export default function HeaderPrivate() {
           >
             Perfil
           </NavLink>
+          {/* Botão de logout (sempre vermelho) */}
+          <Link to="/logout" className="sf-btn-logout" onClick={closeMenu}>
+            Sair
+          </Link>
+        </nav>
+      </div>
+    </header>
+  );
+}
