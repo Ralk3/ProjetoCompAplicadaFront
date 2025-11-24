@@ -57,3 +57,97 @@
   align-items: center;
   gap: 14px;
 }
+/* ===== Botões (escopo local) ===== */
+.sf-header-public .sf-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 36px;
+  padding: 0 14px;
+  border-radius: 10px;
+  border: 1px solid transparent;
+  font-weight: 600;
+  line-height: 1;
+  text-decoration: none;
+  cursor: pointer;
+  transition: transform .06s ease, background-color .15s ease, color .15s ease, box-shadow .15s ease;
+  will-change: transform, background-color;
+  color: inherit;
+}
+.sf-header-public .sf-btn:active { transform: translateY(1px); }
+
+/* Primário (azul) */
+.sf-header-public .sf-btn--primary {
+  background: var(--sf-blue);
+  color: #fff !important;
+}
+.sf-header-public .sf-btn--primary:hover {
+  background: var(--sf-blue-700);
+  color: #fff !important;
+}
+
+/* Secundário (borda azul) */
+.sf-header-public .sf-btn--secondary {
+  background: #fff;
+  color: var(--sf-blue);
+  border-color: var(--sf-blue);
+}
+.sf-header-public .sf-btn--secondary:hover {
+  background: var(--sf-blue);
+  color: #fff !important;
+}
+
+/* Sucesso (verde) — se algum dia usar aqui */
+.sf-header-public .sf-btn--success {
+  background: var(--sf-green);
+  color: #fff;
+}
+.sf-header-public .sf-btn--success:hover {
+  background: var(--sf-green-700);
+}
+
+/* Perigo (vermelho) — ex.: “Sair” se aparecer no público */
+.sf-header-public .sf-btn--danger {
+  background: var(--sf-red);
+  color: #fff;
+}
+.sf-header-public .sf-btn--danger:hover {
+  background: var(--sf-red-700);
+}
+
+/* Link (sem fundo) */
+.sf-header-public .sf-btn--link {
+  background: transparent;
+  color: var(--sf-blue);
+  border: none;
+}
+.sf-header-public .sf-btn--link:hover { text-decoration: underline; }
+
+/* Outline genérico */
+.sf-header-public .sf-btn--outline {
+  background: #fff;
+  border: 1px solid var(--sf-border);
+  color: var(--sf-gray-800);
+}
+.sf-header-public .sf-btn--outline:hover {
+  background: var(--sf-blue);
+  color: #fff !important;
+}
+
+/* Texto branco sobre banners */
+.sf-header-public .sf-btn--text-white {
+  background: none;
+  color: #fff;
+  display: inline;
+  font-weight: 600;
+  text-decoration: none;
+}
+.sf-header-public .sf-btn--text-white:hover { text-decoration: underline; }
+
+/* Estados */
+.sf-header-public .sf-btn:disabled,
+.sf-header-public .sf-btn.is-disabled {
+  opacity: 0.6;
+  pointer-events: none;
+  cursor: not-allowed;
+}
