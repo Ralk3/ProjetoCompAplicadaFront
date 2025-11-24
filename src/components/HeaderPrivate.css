@@ -1,0 +1,29 @@
+:root {
+  --sf-blue: #1e4b7a;           /* Azul principal */
+  --sf-blue-700: #173c62;       /* Azul mais escuro (hover) */
+  --sf-gray-800: #374151;       /* Texto padrão */
+  --sf-border: #e5e7eb;         /* Bordas */
+  --sf-red: #ef5350;            /* Botão Sair */
+  --sf-red-700: #d84343;        /* Hover do Sair */
+}
+
+/* Estrutura principal do header privado */
+.sf-header-private {
+  background: #fff;
+  border-bottom: 1px solid var(--sf-border);
+}
+
+/* Container central */
+.sf-container {
+  max-width: 1160px;
+  margin: 0 auto;
+  padding: 10px 16px;
+}
+
+/* Wrapper: alinha logo e menu */
+.sf-header-private__wrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
