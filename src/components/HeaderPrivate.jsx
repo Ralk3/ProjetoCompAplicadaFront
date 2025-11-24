@@ -12,3 +12,35 @@ export default function HeaderPrivate() {
   const [open, setOpen] = useState(false); // controla o menu mobile
 
   const closeMenu = () => setOpen(false); // fecha o menu ao clicar em um link
+    return (
+    <header className="sf-header-private">
+      <div className="sf-container sf-header-private__wrap">
+
+        {/* Marca / logo */}
+        <Link
+          to="/app"
+          className="sf-header-private__brand"
+          onClick={closeMenu}
+          aria-label="Voltar para a página inicial"
+        >
+          <img
+            src={logo}
+            alt="Logo Serviço Fácil"
+            className="sf-header-private__logo-img"
+            width="50"
+            height="50"
+          />
+          <span className="sf-header-private__brand-text">Serviço Fácil</span>
+        </Link>
+
+        {/* Botão hambúrguer (menu mobile) */}
+        <button
+          className={`sf-burger ${open ? "is-open" : ""}`}
+          aria-label="Abrir ou fechar menu"
+          aria-expanded={open}
+          onClick={() => setOpen((v) => !v)}
+        >
+          <span />
+          <span />
+          <span />
+        </button>
