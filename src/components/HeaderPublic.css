@@ -151,3 +151,22 @@
   pointer-events: none;
   cursor: not-allowed;
 }
+/* Acessibilidade (focus visível) */
+.sf-header-public .sf-btn:focus-visible,
+.sf-header-public .sf-header-public__brand:focus-visible {
+  outline: 2px solid var(--sf-blue);
+  outline-offset: 2px;
+  border-radius: 10px;
+}
+
+/* Responsivo */
+@media (max-width: 640px) {
+  .sf-header-public .sf-header-public__brand-text { font-size: 15px; }
+  .sf-header-public .sf-btn {
+    height: 34px;
+    padding: 0 12px;
+    border-radius: 9px;
+    font-size: 14px;
+  }
+  .sf-header-public .sf-header-public__nav { gap: 10px; }
+}
