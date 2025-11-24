@@ -37,3 +37,56 @@
   margin: 0 auto;
   padding: 24px 16px;
 }
+/* ===== Card ===== */
+.sf-privacy-card {
+  background: #fff;
+  border: 1px solid var(--sf-border);
+  border-radius: 10px;
+  padding: 16px 20px;
+  margin-bottom: 14px;
+  box-shadow: 0 2px 8px rgba(15, 41, 66, 0.04);
+}
+
+.sf-privacy-card h3 {
+  margin: 0 0 10px 0;
+  color: var(--sf-text);
+  font-weight: 700;
+  font-size: 16.5px;
+}
+
+.sf-privacy-card p {
+  margin: 0;
+  color: var(--sf-text);
+  line-height: 1.55;
+}
+
+.sf-privacy-card ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.sf-privacy-card li {
+  position: relative;
+  padding-left: 20px;
+  margin-bottom: 6px;
+  color: var(--sf-text);
+}
+.sf-privacy-card li::before {
+  content: "•";
+  color: var(--sf-blue);
+  font-weight: bold;
+  position: absolute;
+  left: 6px;
+}
+
+/* ===== Box de segurança ===== */
+.sf-security-box {
+  background: var(--sf-green);
+  color: #fff;
+  font-weight: 600;
+  font-size: 14px;
+  padding: 8px 12px;
+  border-radius: 8px;
+  margin-top: 10px;
+  display: inline-block;
+}
