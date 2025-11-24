@@ -44,3 +44,57 @@ export default function HeaderPrivate() {
           <span />
           <span />
         </button>
+                {/* Navegação principal */}
+        <nav
+          className={`sf-header-private__nav ${open ? "is-open" : ""}`}
+          aria-label="Navegação principal"
+        >
+          <NavLink
+            to="/app/servicos"
+            className={({ isActive }) =>
+              `sf-navlink${isActive ? " is-active" : ""}`
+            }
+            onClick={closeMenu}
+          >
+            Serviços
+          </NavLink>
+
+          <NavLink
+            to="/app/anunciar"
+            className={({ isActive }) =>
+              `sf-navlink${isActive ? " is-active" : ""}`
+            }
+            onClick={closeMenu}
+          >
+            Anunciar
+          </NavLink>
+
+          <NavLink
+            to="/app/pagamentos"
+            className={({ isActive }) =>
+              `sf-navlink${isActive ? " is-active" : ""}`
+            }
+            onClick={closeMenu}
+          >
+            Pagamentos
+          </NavLink>
+
+          <NavLink
+            to="/app/perfil"
+            className={({ isActive }) =>
+              `sf-navlink${isActive ? " is-active" : ""}`
+            }
+            onClick={closeMenu}
+          >
+            Perfil
+          </NavLink>
+
+          {/* Botão de logout */}
+          <Link to="/logout" className="sf-btn-logout" onClick={closeMenu}>
+            Sair
+          </Link>
+        </nav>
+      </div>
+    </header>
+  );
+}
