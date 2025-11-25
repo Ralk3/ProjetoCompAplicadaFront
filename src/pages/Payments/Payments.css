@@ -90,3 +90,25 @@ body{
       margin: 40px auto;
       padding: 0 20px;
     }
+
+
+/* ----------------------------------------------------------
+CARD DE PAGAMENTO
+---------------------------------------------------------- */
+.pagamento-card{
+background:#fff;
+padding:30px;
+border-radius:16px;
+box-shadow:0 6 px 18px rgba(0, 0, 0.05);
+}
+
+.pagamento-card h2{
+color:var(--azul-escuro);
+margin-bottom: 8px;
+}
+
+.pagamento-card p{
+color: var(--texto-suave);
+margin-bottom: 20px;
+font-size: 0.95rem;
+}
