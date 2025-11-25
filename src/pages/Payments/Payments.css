@@ -112,3 +112,36 @@ color: var(--texto-suave);
 margin-bottom: 20px;
 font-size: 0.95rem;
 }
+
+/* ----------------------------------------------------------
+   RESUMO DO SERVIÇO
+   ---------------------------------------------------------- */
+.resumo{
+background: #f1f5f9;
+padding: 16px 20px;
+border-radius:12px;
+margin-bottom:24px;
+}
+
+.resumo h3{
+   font-size: 1rem;
+   margin-bottom: 8px;
+   color: var(--azul-escuro);
+}
+
+.servico{
+   display:flex;
+   justify-content: space-between;
+   align-items:center;
+   font-weight:600;
+   margin-bottom:4px;
+}
+
+.valor{
+   color:var(--azul-principal);
+}
+
+.descricao{
+   color:var(--texto-suave);
+   font-size: 0.9rem;
+}
