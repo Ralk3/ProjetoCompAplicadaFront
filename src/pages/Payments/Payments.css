@@ -81,3 +81,154 @@ body{
 .logout:hover {
    background: var(--vermelho);
 }
+
+/* ----------------------------------------------------------
+   CONTAINER PRINCIPAL
+   ---------------------------------------------------------- */
+   .container {
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+
+
+/* ----------------------------------------------------------
+CARD DE PAGAMENTO
+---------------------------------------------------------- */
+.pagamento-card{
+background:#fff;
+padding:30px;
+border-radius:16px;
+box-shadow:0 6 px 18px rgba(0, 0, 0.05);
+}
+
+.pagamento-card h2{
+color:var(--azul-escuro);
+margin-bottom: 8px;
+}
+
+.pagamento-card p{
+color: var(--texto-suave);
+margin-bottom: 20px;
+font-size: 0.95rem;
+}
+
+/* ----------------------------------------------------------
+   RESUMO DO SERVIÇO
+   ---------------------------------------------------------- */
+.resumo{
+background: #f1f5f9;
+padding: 16px 20px;
+border-radius:12px;
+margin-bottom:24px;
+}
+
+.resumo h3{
+   font-size: 1rem;
+   margin-bottom: 8px;
+   color: var(--azul-escuro);
+}
+
+.servico{
+   display:flex;
+   justify-content: space-between;
+   align-items:center;
+   font-weight:600;
+   margin-bottom:4px;
+}
+
+.valor{
+   color:var(--azul-principal);
+}
+
+.descricao{
+   color:var(--texto-suave);
+   font-size: 0.9rem;
+}
+
+/* ----------------------------------------------------------
+   FORMULÁRIO DE PAGAEMENTO
+   ---------------------------------------------------------- */
+.form-pagamento label{
+display:block;
+margin-bottom: 6px;
+font-weight:500;
+color: var(--texto-escuro);
+} 
+
+.form-pagamento input,
+.form-pagamento select{
+   width:100%;
+   padding: 10px;
+   border: 1px solid var(--cinza-borda);
+   border-radius: 8px;
+   margin-bottom: 16px;
+   font-size: 0.95rem;
+   background-color:#fff;
+   transition: border-color 0.2, box-shadow 0.2s;
+}
+
+.form-pagamento input:focus,
+.form-pagamento select:focus{
+  border-color: var(--azul-principal);
+  outline:none;
+  box-shadow: 0 0 0 2px rgba(37,99,235,0.2);
+}
+
+.linha{
+   display:flex;
+   gap:12px;
+}
+
+.linha div{
+   flex:1;
+}
+
+/* ----------------------------------------------------------
+   BOTAO DE PAGAR
+   ---------------------------------------------------------- */
+   .btn-pagar{
+      background:var(--azul-principal);
+      color:#fff;
+      border:none;
+      border-radius: 8px;
+      padding: 12px 18px;
+      font-weight:500;
+      cursor:pointer;
+      transition: background 0.3s ease;
+      width:100%;
+      font-size: 1rem;
+   }
+
+   .btn-pagar:hover{
+      background: var(--azul-escuro);
+   }
+
+/* ----------------------------------------------------------
+ RESPONSIVIDADE
+   ---------------------------------------------------------- */ 
+   @media (max-width: 768px) {
+      .navbar{
+         flex-direction: column;
+         gap: 8px;
+         padding: 12px 20px;
+      }
+   }
+
+   .navbar ul{
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+   }
+
+   .linha{
+      flex-direction: column;
+   }
+
+   .container{
+      margin:20px auto;
+   }
+
+   .pagamento-card{
+      padding:20px;
+   }
