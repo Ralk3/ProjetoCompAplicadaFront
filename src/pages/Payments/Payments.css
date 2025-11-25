@@ -145,3 +145,41 @@ margin-bottom:24px;
    color:var(--texto-suave);
    font-size: 0.9rem;
 }
+
+/* ----------------------------------------------------------
+   FORMULÁRIO DE PAGAEMENTO
+   ---------------------------------------------------------- */
+.form-pagamento label{
+display:block;
+margin-bottom: 6px;
+font-weight:500;
+color: var(--texto-escuro);
+} 
+
+.form-pagamento input,
+.form-pagamento select{
+   width:100%;
+   padding: 10px;
+   border: 1px solid var(--cinza-borda);
+   border-radius: 8px;
+   margin-bottom: 16px;
+   font-size: 0.95rem;
+   background-color:#fff;
+   transition: border-color 0.2, box-shadow 0.2s;
+}
+
+.form-pagamento input:focus,
+.form-pagamento select:focus{
+  border-color: var(--azul-principal);
+  outline:none;
+  box-shadow: 0 0 0 2px rgba(37,99,235,0.2);
+}
+
+.linha{
+   display:flex;
+   gap:12px;
+}
+
+.linha div{
+   flex:1;
+}
