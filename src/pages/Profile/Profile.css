@@ -9,3 +9,43 @@
   --sf-bg:#f8fafc;
 }
 
+/* ===== faixa azul (full-bleed) com voltar + título ===== */
+.sf-head{
+  background:#edf4fb;
+  margin-inline:calc(50% - 50vw); /* ocupa a largura da viewport */
+  width:100vw;
+  border-bottom:1px solid var(--sf-border);
+}
+.sf-head__inner{
+  max-width:1160px;
+  margin:0 auto;
+  padding:16px;
+  display:flex;
+  align-items:center;
+  gap:16px;
+}
+.sf-head__back{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  height:36px;
+  padding:0 12px;
+  border:1px solid var(--sf-border);
+  border-radius:10px;
+  background:#fff;
+  color:var(--sf-text);
+  text-decoration:none;
+  font-weight:600;
+}
+.sf-head__back:hover{ filter:brightness(.98); }
+.sf-head__titles h1{
+  margin:0;
+  color:var(--sf-blue);
+  font-weight:800;
+  font-size:22px;
+  letter-spacing:.1px;
+}
+.sf-head__titles p{
+  margin:4px 0 0 0;
+  color:var(--sf-muted);
+}
