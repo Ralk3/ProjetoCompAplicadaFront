@@ -183,3 +183,23 @@ color: var(--texto-escuro);
 .linha div{
    flex:1;
 }
+
+/* ----------------------------------------------------------
+   BOTAO DE PAGAR
+   ---------------------------------------------------------- */
+   .btn-pagar{
+      background:var(--azul-principal);
+      color:#fff;
+      border:none;
+      border-radius: 8px;
+      padding: 12px 18px;
+      font-weight:500;
+      cursor:pointer;
+      transition: background 0.3s ease;
+      width:100%;
+      font-size: 1rem;
+   }
+
+   .btn-pagar:hover{
+      background: var(--azul-escuro);
+   }
