@@ -49,3 +49,34 @@
   margin:4px 0 0 0;
   color:var(--sf-muted);
 }
+
+/* ===== container central ===== */
+.sf-prof-page{
+  max-width:1160px;
+  margin:0 auto;
+  padding:16px;
+}
+
+/* ===== card ===== */
+.sf-card{
+  background:#fff;
+  border:1px solid var(--sf-border);
+  border-radius:14px;
+  box-shadow:var(--sf-shadow);
+  padding:16px;
+}
+.sf-card-title{
+  margin:0 0 12px 0;
+  color:var(--sf-text);
+  font-weight:700;
+}
+
+/* ===== grade 2 colunas (Nome/Sobrenome) ===== */
+.sf-grid-2{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:14px;
+}
+@media (max-width:720px){
+  .sf-grid-2{ grid-template-columns:1fr; }
+}
