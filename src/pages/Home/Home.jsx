@@ -71,6 +71,26 @@ export default function Home() {
           </div>
         </div>
       </section>
+      
+      <section className="sf-home__metrics">
+        <div className="sf-home__container sf-home__metrics-grid">
+          <div className="sf-home__metric"><strong>5.000+</strong><span>Anúncios ativos</span></div>
+          <div className="sf-home__metric"><strong>4,8/5</strong><span>Média de avaliação</span></div>
+          <div className="sf-home__metric"><strong>&lt;10 min</strong><span>Tempo médio para encontrar</span></div>
+        </div>
+      </section>
+
+      <footer className="sf-home__footer">
+        <div className="sf-home__container">
+          <div className="sf-home__cta-footer">
+            <h3>É profissional? Alcance novos clientes no Serviço Fácil.</h3>
+            <Link to="/register" className="sf-home__btn sf-home__btn--primary">Começar a anunciar</Link>
+          </div>
+          <div className="sf-home__footer-links">
+            <Link to="/politica-de-privacidade">Política de Privacidade</Link>
+          </div>
+        </div>
+      </footer>
     </div>
   )
 }
