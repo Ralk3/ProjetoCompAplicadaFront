@@ -1,0 +1,172 @@
+/* ===== Header público (escopo local) ===== */
+.sf-header-public {
+  /* Paleta local (não polui :root) */
+  --sf-blue: #1e4b7a;
+  --sf-blue-700: #173c62;
+  --sf-red: #f05454;
+  --sf-red-700: #d63c3c;
+  --sf-green: #10b981;
+  --sf-green-700: #059669;
+  --sf-border: #e5e7eb;
+  --sf-gray-800: #374151;
+  --sf-gray-600: #6b7280;
+  --sf-white: #ffffff;
+
+  background: var(--sf-white);
+  border-bottom: 1px solid var(--sf-border);
+}
+
+/* container só vale dentro do header público */
+.sf-header-public .sf-container {
+  max-width: 1160px;
+  margin: 0 auto;
+  padding: 10px 16px;
+}
+
+.sf-header-public .sf-header-public__wrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+/* Marca (logo + texto) */
+.sf-header-public .sf-header-public__brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+}
+
+.sf-header-public .sf-header-public__logo-img {
+  display: block;
+  width: 50px;
+  height: 50px;
+  border-radius: 8px;
+}
+
+.sf-header-public .sf-header-public__brand-text {
+  font-weight: 600;
+  color: var(--sf-gray-800);
+  letter-spacing: 0.2px;
+}
+
+/* Navegação */
+.sf-header-public .sf-header-public__nav {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+}
+/* ===== Botões (escopo local) ===== */
+.sf-header-public .sf-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 36px;
+  padding: 0 14px;
+  border-radius: 10px;
+  border: 1px solid transparent;
+  font-weight: 600;
+  line-height: 1;
+  text-decoration: none;
+  cursor: pointer;
+  transition: transform .06s ease, background-color .15s ease, color .15s ease, box-shadow .15s ease;
+  will-change: transform, background-color;
+  color: inherit;
+}
+.sf-header-public .sf-btn:active { transform: translateY(1px); }
+
+/* Primário (azul) */
+.sf-header-public .sf-btn--primary {
+  background: var(--sf-blue);
+  color: #fff !important;
+}
+.sf-header-public .sf-btn--primary:hover {
+  background: var(--sf-blue-700);
+  color: #fff !important;
+}
+
+/* Secundário (borda azul) */
+.sf-header-public .sf-btn--secondary {
+  background: #fff;
+  color: var(--sf-blue);
+  border-color: var(--sf-blue);
+}
+.sf-header-public .sf-btn--secondary:hover {
+  background: var(--sf-blue);
+  color: #fff !important;
+}
+
+/* Sucesso (verde) — se algum dia usar aqui */
+.sf-header-public .sf-btn--success {
+  background: var(--sf-green);
+  color: #fff;
+}
+.sf-header-public .sf-btn--success:hover {
+  background: var(--sf-green-700);
+}
+
+/* Perigo (vermelho) — ex.: “Sair” se aparecer no público */
+.sf-header-public .sf-btn--danger {
+  background: var(--sf-red);
+  color: #fff;
+}
+.sf-header-public .sf-btn--danger:hover {
+  background: var(--sf-red-700);
+}
+
+/* Link (sem fundo) */
+.sf-header-public .sf-btn--link {
+  background: transparent;
+  color: var(--sf-blue);
+  border: none;
+}
+.sf-header-public .sf-btn--link:hover { text-decoration: underline; }
+
+/* Outline genérico */
+.sf-header-public .sf-btn--outline {
+  background: #fff;
+  border: 1px solid var(--sf-border);
+  color: var(--sf-gray-800);
+}
+.sf-header-public .sf-btn--outline:hover {
+  background: var(--sf-blue);
+  color: #fff !important;
+}
+
+/* Texto branco sobre banners */
+.sf-header-public .sf-btn--text-white {
+  background: none;
+  color: #fff;
+  display: inline;
+  font-weight: 600;
+  text-decoration: none;
+}
+.sf-header-public .sf-btn--text-white:hover { text-decoration: underline; }
+
+/* Estados */
+.sf-header-public .sf-btn:disabled,
+.sf-header-public .sf-btn.is-disabled {
+  opacity: 0.6;
+  pointer-events: none;
+  cursor: not-allowed;
+}
+/* Acessibilidade (focus visível) */
+.sf-header-public .sf-btn:focus-visible,
+.sf-header-public .sf-header-public__brand:focus-visible {
+  outline: 2px solid var(--sf-blue);
+  outline-offset: 2px;
+  border-radius: 10px;
+}
+
+/* Responsivo */
+@media (max-width: 640px) {
+  .sf-header-public .sf-header-public__brand-text { font-size: 15px; }
+  .sf-header-public .sf-btn {
+    height: 34px;
+    padding: 0 12px;
+    border-radius: 9px;
+    font-size: 14px;
+  }
+  .sf-header-public .sf-header-public__nav { gap: 10px; }
+}

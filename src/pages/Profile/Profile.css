@@ -1,0 +1,11 @@
+:root{
+  /* paleta base do projeto */
+  --sf-blue:#1e4b7a;
+  --sf-blue-700:#173c62;
+  --sf-border:#e5e7eb;
+  --sf-muted:#6b7280;
+  --sf-text:#0f2942;
+  --sf-shadow:0 8px 24px rgba(2,6,23,.08);
+  --sf-bg:#f8fafc;
+}
+

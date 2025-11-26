@@ -1,0 +1,158 @@
+:root {
+  --sf-blue: #1e4b7a;           /* Azul principal */
+  --sf-blue-700: #173c62;       /* Azul mais escuro (hover) */
+  --sf-gray-800: #374151;       /* Texto padrão */
+  --sf-border: #e5e7eb;         /* Bordas */
+  --sf-red: #ef5350;            /* Botão Sair */
+  --sf-red-700: #d84343;        /* Hover do Sair */
+}
+
+/* Estrutura principal do header privado */
+.sf-header-private {
+  background: #fff;
+  border-bottom: 1px solid var(--sf-border);
+}
+
+/* Container central */
+.sf-container {
+  max-width: 1160px;
+  margin: 0 auto;
+  padding: 10px 16px;
+}
+
+/* Wrapper: alinha logo e menu */
+.sf-header-private__wrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+/* ----- Marca / Logo ----- */
+.sf-header-private__brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+}
+.sf-header-private__logo-img {
+  display: block;
+  width: 50px;
+  height: 50px;
+  border-radius: 8px;
+}
+.sf-header-private__brand-text {
+  font-weight: 700;
+  color: var(--sf-blue);
+  letter-spacing: 0.2px;
+}
+
+/* ----- Botão hamburguer (mobile) ----- */
+.sf-burger {
+  display: none;
+  width: 38px;
+  height: 34px;
+  border: 0;
+  background: transparent;
+  padding: 0;
+  position: relative;
+  cursor: pointer;
+}
+.sf-burger span {
+  position: absolute;
+  left: 6px;
+  right: 6px;
+  height: 2px;
+  background: #0f172a;
+  transition: transform 0.2s ease, opacity 0.2s ease, top 0.2s ease;
+}
+.sf-burger span:nth-child(1) { top: 9px; }
+.sf-burger span:nth-child(2) { top: 16px; }
+.sf-burger span:nth-child(3) { top: 23px; }
+.sf-burger.is-open span:nth-child(1) { top: 16px; transform: rotate(45deg); }
+.sf-burger.is-open span:nth-child(2) { opacity: 0; }
+.sf-burger.is-open span:nth-child(3) { top: 16px; transform: rotate(-45deg); }
+
+/* ----- Navegação principal (desktop) ----- */
+.sf-header-private__nav {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+}
+.sf-navlink {
+  padding: 8px 12px;
+  border-radius: 10px;
+  text-decoration: none;
+  color: #0f2942;
+  font-weight: 600;
+  transition: color 0.15s ease, background-color 0.15s ease;
+}
+.sf-navlink.is-active {
+  background: #335a81;
+  color: #fff !important;
+}
+.sf-navlink.is-active:hover,
+.sf-navlink.is-active:focus {
+  background: #335a81;
+  color: #fff !important;
+}
+.sf-navlink:hover {
+  color: var(--sf-blue-700);
+}
+
+/* ----- Botão Sair ----- */
+.sf-btn-logout {
+  background: var(--sf-red);
+  color: #fff;
+  text-decoration: none;
+  padding: 8px 14px;
+  border-radius: 12px;
+  font-weight: 700;
+  transition: background 0.15s ease, transform 0.06s ease;
+}
+.sf-btn-logout:hover { background: var(--sf-red-700); }
+.sf-btn-logout:active { transform: translateY(1px); }
+@media (max-width: 840px) {
+  /* Exibe o hambúrguer */
+  .sf-burger { display: block; }
+
+  /* Menu mobile inicialmente escondido */
+  .sf-header-private__nav {
+    position: absolute;
+    top: 60px;
+    left: 0;
+    right: 0;
+    background: #fff;
+    border-top: 1px solid var(--sf-border);
+    padding: 12px 16px;
+    display: grid;
+    gap: 8px;
+    transform: translateY(-12px);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.18s ease, transform 0.18s ease;
+  }
+  /* Menu mobile aberto */
+  .sf-header-private__nav.is-open {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+  }
+  /* Ajuste dos links e botão mobile */
+  .sf-navlink {
+    padding: 10px 12px;
+    border-radius: 10px;
+  }
+  .sf-btn-logout {
+    justify-self: start;
+  }
+}
+
+/* ------ Foco para acessibilidade ------ */
+.sf-navlink:focus,
+.sf-btn-logout:focus,
+.sf-header-private__brand:focus,
+.sf-burger:focus {
+  outline: 2px solid #94a3b8;
+  outline-offset: 2px;
+  border-radius: 10px;
+}

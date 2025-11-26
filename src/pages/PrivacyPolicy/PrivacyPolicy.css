@@ -1,0 +1,92 @@
+:root {
+  --sf-blue: #1e4b7a;
+  --sf-blue-700: #173c62;
+  --sf-border: #e5e7eb;
+  --sf-muted: #6b7280;
+  --sf-text: #0f2942;
+  --sf-bg: #f8fafc;
+  --sf-green: #10b981;
+}
+
+/* ===== Faixa azul ===== */
+.sf-head {
+  background: #edf4fb;
+  border-bottom: 1px solid var(--sf-border);
+  margin-inline: calc(50% - 50vw);
+  width: 100vw;
+}
+.sf-head__inner {
+  max-width: 1160px;
+  margin: 0 auto;
+  padding: 20px 16px;
+}
+.sf-head__titles h1 {
+  margin: 0;
+  color: var(--sf-blue);
+  font-weight: 800;
+  font-size: 22px;
+}
+.sf-head__titles p {
+  margin: 4px 0 0;
+  color: var(--sf-muted);
+  font-size: 15px;
+}
+/* ===== Página ===== */
+.sf-privacy-page {
+  max-width: 1160px;
+  margin: 0 auto;
+  padding: 24px 16px;
+}
+/* ===== Card ===== */
+.sf-privacy-card {
+  background: #fff;
+  border: 1px solid var(--sf-border);
+  border-radius: 10px;
+  padding: 16px 20px;
+  margin-bottom: 14px;
+  box-shadow: 0 2px 8px rgba(15, 41, 66, 0.04);
+}
+
+.sf-privacy-card h3 {
+  margin: 0 0 10px 0;
+  color: var(--sf-text);
+  font-weight: 700;
+  font-size: 16.5px;
+}
+
+.sf-privacy-card p {
+  margin: 0;
+  color: var(--sf-text);
+  line-height: 1.55;
+}
+
+.sf-privacy-card ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.sf-privacy-card li {
+  position: relative;
+  padding-left: 20px;
+  margin-bottom: 6px;
+  color: var(--sf-text);
+}
+.sf-privacy-card li::before {
+  content: "•";
+  color: var(--sf-blue);
+  font-weight: bold;
+  position: absolute;
+  left: 6px;
+}
+
+/* ===== Box de segurança ===== */
+.sf-security-box {
+  background: var(--sf-green);
+  color: #fff;
+  font-weight: 600;
+  font-size: 14px;
+  padding: 8px 12px;
+  border-radius: 8px;
+  margin-top: 10px;
+  display: inline-block;
+}
