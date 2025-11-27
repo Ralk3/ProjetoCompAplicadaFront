@@ -31,3 +31,39 @@ export default function Payments(){
 }
 const [loading, setLoading]= useState(falsse);
 const API_URL = "http://localhost:3000/payments";
+
+onst fetchPayments= async() =>{
+  try{
+    setLoading(true);
+    const res= await fetch(API_URL);
+    if (!res.ok) throw new Error("Falha ao buscar pagamentos");
+    const data= await res.json();
+    setPayments(data);
+  }catch (err){
+    console.error(err);
+  }finally{
+    setLoading(false);
+  }
+};
+useEffect(() => {
+  fetchPayments();
+}, []);
+
+const handleCreatePayment = async () => {
+  if (!newPayment.name || !newPayment.value) return;
+  try {
+    setLoading(true);
+    await fetch(API_URL, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(newPayment),
+    });
+    setOpen(false);
+    setNewPayment({ name: "", value: "", method: "PIX" });
+    await fetchPayments();
+  } catch (err) {
+    console.error(err);
+  } finally {
+    setLoading(false);
+  }
+};
