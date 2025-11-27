@@ -167,3 +167,44 @@
   transition: background .15s ease;
 }
 .sf-home__chip:hover { background: #f2f4f8; }
+
+.sf-home__metrics { padding: 24px 0 28px; }
+.sf-home__metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+.sf-home__metric {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 20px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+.sf-home__metric strong { color: var(--primary); font-size: 22px; }
+.sf-home__metric span { color: var(--muted); font-size: 14px; }
+
+.sf-home__footer {
+  background: #0c6fd8;
+  color: #fff;
+  padding: 32px 0;
+  border-top: 1px solid #0a61be;
+}
+.sf-home__cta-footer {
+  background: #0a61be;
+  color: #fff;
+  border-radius: var(--radius);
+  padding: 22px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: var(--shadow);
+}
+.sf-home__cta-footer h3 { font-size: 18px; font-weight: 600; line-height: 1.4; }
+.sf-home__footer-links { margin-top: 14px; }
+.sf-home__footer-links a { color: #dfefff; text-decoration: underline; font-size: 14px; }
