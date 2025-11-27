@@ -1,6 +1,9 @@
 import React from "react";
 import HeaderPublic from "../../components/HeaderPublic.jsx";
 import "./MyServices.css";
+import { Link } from "react-router-dom";
+import searchImg from "../assets/sf-servicos-pesquisar.png";
+
 
 export default function MyServices() {
   return (
@@ -13,8 +16,16 @@ export default function MyServices() {
           <p className="sf-home__muted">
             Gerencie seus anúncios e acompanhe o status
           </p>
+
+          <Link
+  className="sf-home__btn sf-home__btn--primary"
+  to="/app/novo-servico"
+>
+  + Criar novo serviço
+</Link>
         </div>
       </section>
+
     </div>
   );
 }
