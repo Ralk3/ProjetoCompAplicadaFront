@@ -112,3 +112,25 @@
   color:var(--sf-text);
   font:inherit;
 }
+.sf-field__icon{
+  font-size:14px;           /* ícone simples (emoji/SVG) */
+  color:#5b6880;
+}
+.sf-input{
+  border:0;
+  outline:none;
+  height:38px;
+  flex:1;
+  background:transparent;
+  color:var(--sf-text);
+  font:inherit;
+}
+.sf-input:focus{
+  /* realce suave no contêiner */
+  box-shadow:0 0 0 3px rgba(30,75,122,.12);
+  border-radius:10px;
+}
+
+/* placeholder e estados somente-leitura */
+.sf-input::placeholder{ color:#97a3b7; }
+.sf-input[readonly]{ color:#64748b; cursor:not-allowed; }
