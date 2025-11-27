@@ -134,3 +134,35 @@
 /* placeholder e estados somente-leitura */
 .sf-input::placeholder{ color:#97a3b7; }
 .sf-input[readonly]{ color:#64748b; cursor:not-allowed; }
+
+/* ===== ações do formulário ===== */
+.sf-form__actions{
+  display:flex;
+  justify-content:flex-end;
+  gap:10px;
+  margin-top:10px;
+}
+.sf-btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  height:40px;
+  padding:0 16px;
+  border-radius:10px;
+  font-weight:700;
+  border:1px solid transparent;
+  cursor:pointer;
+  transition:background .15s ease, filter .15s ease;
+}
+.sf-btn--light{
+  background:#f3f4f6;
+  color:var(--sf-text);
+  border-color:var(--sf-border);
+}
+.sf-btn--light:hover{ filter:brightness(.98); }
+.sf-btn--primary{
+  background:var(--sf-blue);
+  color:#fff;
+}
+.sf-btn--primary:hover{ background:var(--sf-blue-700); }
+.sf-btn[disabled]{ opacity:.65; cursor:not-allowed; }
