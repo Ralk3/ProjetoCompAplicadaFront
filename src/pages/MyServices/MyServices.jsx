@@ -67,6 +67,14 @@ const meusServicos = [
     status: "Pausado",
     img: "https://images.unsplash.com/photo-1504754524776-8f4f37790ca0?q=80&w=1200&auto=format&fit=crop",
   },
+  {
+  id: 10,
+  titulo: "Passeio e Cuidados com Pets",
+  desc: "Serviço de dog walker e cuidados básicos em casa.",
+  status: "Ativo",
+  img: "https://images.unsplash.com/photo-1558944351-c7e63d948d5c?q=80&w=1200&auto=format&fit=crop",
+},
+
 ];
 
 
@@ -83,11 +91,11 @@ export default function MyServices() {
           </p>
 
           <Link
-  className="sf-home__btn sf-home__btn--primary"
-  to="/app/novo-servico"
->
-  + Criar novo serviço
-</Link>
+            className="sf-home__btn sf-home__btn--primary"
+            to="/app/novo-servico"
+          >
+            + Criar novo serviço
+          </Link>
         </div>
       </section>
 
@@ -132,7 +140,8 @@ export default function MyServices() {
           )}
         </div>
       </section>
-
     </div>
   );
 }
+
+
