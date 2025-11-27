@@ -80,3 +80,89 @@
 @media (max-width:720px){
   .sf-grid-2{ grid-template-columns:1fr; }
 }
+
+/* ===== campos com ícone à esquerda (sem libs) ===== */
+.sf-field{ margin-bottom:12px; }
+.sf-field label{
+  display:block;
+  margin-bottom:6px;
+  font-weight:600;
+  color:var(--sf-text);
+}
+.sf-field__wrap{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  border:1px solid var(--sf-border);
+  border-radius:10px;
+  background:#f7fbff;
+  padding:0 12px;
+  height:42px;
+}
+.sf-field__icon{
+  font-size:14px;           /* ícone simples (emoji/SVG) */
+  color:#5b6880;
+}
+.sf-input{
+  border:0;
+  outline:none;
+  height:38px;
+  flex:1;
+  background:transparent;
+  color:var(--sf-text);
+  font:inherit;
+}
+.sf-field__icon{
+  font-size:14px;           /* ícone simples (emoji/SVG) */
+  color:#5b6880;
+}
+.sf-input{
+  border:0;
+  outline:none;
+  height:38px;
+  flex:1;
+  background:transparent;
+  color:var(--sf-text);
+  font:inherit;
+}
+.sf-input:focus{
+  /* realce suave no contêiner */
+  box-shadow:0 0 0 3px rgba(30,75,122,.12);
+  border-radius:10px;
+}
+
+/* placeholder e estados somente-leitura */
+.sf-input::placeholder{ color:#97a3b7; }
+.sf-input[readonly]{ color:#64748b; cursor:not-allowed; }
+
+/* ===== ações do formulário ===== */
+.sf-form__actions{
+  display:flex;
+  justify-content:flex-end;
+  gap:10px;
+  margin-top:10px;
+}
+.sf-btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  height:40px;
+  padding:0 16px;
+  border-radius:10px;
+  font-weight:700;
+  border:1px solid transparent;
+  cursor:pointer;
+  transition:background .15s ease, filter .15s ease;
+}
+.sf-btn--light{
+  background:#f3f4f6;
+  color:var(--sf-text);
+  border-color:var(--sf-border);
+}
+.sf-btn--light:hover{ filter:brightness(.98); }
+.sf-btn--primary{
+  background:var(--sf-blue);
+  color:#fff;
+}
+.sf-btn--primary:hover{ background:var(--sf-blue-700); }
+.sf-btn[disabled]{ opacity:.65; cursor:not-allowed; }
