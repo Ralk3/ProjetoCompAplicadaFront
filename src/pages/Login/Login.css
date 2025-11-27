@@ -42,3 +42,35 @@
   text-align: center;
   padding: 24px 0;
 }
+
+.sf-login__form {
+  display: flex;
+  flex-direction: column;
+  margin-top: 12px;
+}
+
+.sf-login__field {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #f0f4f9;
+  padding: 10px 12px;
+  border-radius: var(--radius);
+}
+
+.sf-login__input {
+  border: none;
+  outline: none;
+  flex: 1;
+  background: transparent;
+}
+
+.sf-login__btn {
+  margin-top: 18px;
+  padding: 12px;
+  border-radius: var(--radius);
+  border: none;
+  background: var(--clr-primary);
+  color: white;
+  cursor: pointer;
+}
