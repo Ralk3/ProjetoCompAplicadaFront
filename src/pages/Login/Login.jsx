@@ -1,10 +1,29 @@
 import React, { useState } from 'react'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
 import HeaderPublic from '../../components/HeaderPublic.jsx'
+import { useAuth } from '../../context/AuthContext.jsx'
 import './Login.css'
 
 export default function Login() {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
+  const [error, setError] = useState('')
+  const navigate = useNavigate()
+  const location = useLocation()
+  const { loginWithCredentials, loading } = useAuth()
+
+  const onSubmit = async (e) => {
+    e.preventDefault()
+    setError('')
+    const res = await loginWithCredentials(email, password)
+
+    if (res.ok) {
+      const from = location.state?.from?.pathname || '/app/servicos'
+      navigate(from, { replace: true })
+    } else {
+      setError('E-mail ou senha inválidos.')
+    }
+  }
 
   return (
     <div className="sf-login">
@@ -25,7 +44,7 @@ export default function Login() {
         <div className="sf-login__card sf-login__col">
           <h2 className="sf-login__formtitle">Bem-vindo de volta</h2>
 
-          <form className="sf-login__form">
+          <form onSubmit={onSubmit} className="sf-login__form">
             <label className="sf-login__label">E-mail</label>
             <div className="sf-login__field">
               <span className="sf-login__icon">✉️</span>
@@ -50,13 +69,21 @@ export default function Login() {
               />
             </div>
 
-            <button className="sf-login__btn">Entrar</button>
+            {error && <div className="sf-login__error">{error}</div>}
+
+            <button className="sf-login__btn" disabled={loading}>
+              {loading ? 'Entrando...' : 'Entrar'}
+            </button>
           </form>
+
+          <div className="sf-login__register">
+            Novo por aqui? <Link to="/register">Criar conta</Link>
+          </div>
         </div>
       </div>
 
       <div className="sf-login__footerbar">
-        <a className="sf-login__privacy">Política de privacidade</a>
+        <Link to="/politica-de-privacidade" className="sf-login__privacy">Política de privacidade</Link>
       </div>
     </div>
   )
