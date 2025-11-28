@@ -84,3 +84,16 @@ const uptdadeStatus= async(Id, Status)=>{
   }
 };
 
+
+const deletePayment = async (id) =>{
+  if (!confirm("Deseja realmente excluir este pagamento?")) return;
+try{
+  setLoading(true);
+  await fetch({$API_URL}/{id}, { method: "DELETE" });
+  await fetchPayments();
+} catch (err){
+  console.error(err);
+}finally{
+  setLoading(false);
+}
+};
