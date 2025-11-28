@@ -1,0 +1,29 @@
+.sf-services__container {
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+.sf-services__header {
+  background: #fafafa;
+  border-bottom: 1px solid #eee;
+}
+
+.sf-services__actions {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.sf-services__btn {
+  padding: 0.4rem 0.8rem;
+  border-radius: 6px;
+  background: #eee;
+  border: none;
+  cursor: pointer;
+}
+
+.sf-services__btn--danger {
+  background: #ffdddd;
+}

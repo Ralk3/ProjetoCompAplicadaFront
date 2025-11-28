@@ -1,8 +1,3 @@
-/* ----------------------------------------------------------
-   PAGAMENTO.CSS — Estilo da página de pagamento (Serviço Fácil)
-   Autor: Julia / Projeto Faculdade
-   ---------------------------------------------------------- */
-
 /* ---------- Fonte e estilo base ---------- */
 @import url('https://fonts.googleapis.com/css2?family=intyter:wght@400;500;600&display=swap');
 
@@ -232,3 +227,4 @@ color: var(--texto-escuro);
    .pagamento-card{
       padding:20px;
    }
+

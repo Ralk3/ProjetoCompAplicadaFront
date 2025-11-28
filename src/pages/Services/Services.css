@@ -1,149 +1,384 @@
-/* ============================
-   Services Page – Week 3
-   Commit: feat: adiciona listagem de serviços e paginação
-   ============================ */
-
+/* ===== LISTAGEM DE SERVIÇOS (autônoma) ===== */
 .sf-services {
-  font-family: Arial, sans-serif;
-  background: #f5f7fb;
-  color: #1b2a3a;
-  min-height: 100vh;
+  --text: #1b2a3a;
+  --muted: #6b7a8c;
+  --bg: #f5f7fb;
+  --card: #fff;
+  --border: #e3e8ef;
+  --primary: #2f5177;
+  --radius: 14px;
+  --shadow: 0 8px 24px rgba(0, 0, 0, .06);
+  color: var(--text);
+  background: var(--bg);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Ubuntu, 'Helvetica Neue', Arial, sans-serif;
 }
 
+.sf-services * {
+  box-sizing: border-box
+}
+
+/* hero */
 .sf-services__hero {
   background: #eef4fb;
-  border-bottom: 1px solid #e3e8ef;
-  padding: 20px 0;
+  border-bottom: 1px solid var(--border)
 }
 
 .sf-services__hero-inner {
   max-width: 1140px;
   margin: 0 auto;
-  padding: 0 16px;
+  padding: 18px 16px;
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 22px;
+  align-items: center
 }
 
 .sf-services__hero-text h1 {
-  color: #2f5177;
-  margin-bottom: 8px;
-  font-size: 28px;
+  color: var(--primary);
+  margin: 0 0 6px;
+  font-size: 24px
 }
 
 .sf-services__hero-text p {
-  color: #6b7a8c;
-  margin-bottom: 10px;
-  font-size: 15px;
+  color: var(--muted);
+  margin: 0 0 10px
 }
 
 .sf-services__search {
   display: flex;
-  gap: 8px;
+  gap: 8px
 }
 
 .sf-services__input {
   flex: 1;
-  padding: 10px 12px;
-  border: 1px solid #e3e8ef;
-  border-radius: 8px;
-  font-size: 14px;
-  outline: none;
-}
-
-.sf-services__input:focus {
-  border-color: #2f5177;
-  box-shadow: 0 0 0 2px rgba(47, 81, 119, 0.2);
+  padding: 12px 14px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: #fff
 }
 
 .sf-services__btn {
-  padding: 10px 16px;
-  background: #2f5177;
-  color: #fff;
+  padding: 12px 16px;
+  border-radius: 10px;
+  font-weight: 700;
   border: none;
-  border-radius: 8px;
-  font-weight: bold;
-  cursor: pointer;
-  transition: background 0.2s ease;
+  color: #fff;
+  background: var(--primary)
 }
 
-.sf-services__btn:hover {
-  background: #24425f;
+.sf-services__hero-art img {
+  width: 100%;
+  height: 180px;
+  object-fit: contain
 }
 
+/* container */
 .sf-services__container {
   max-width: 1140px;
-  margin: 20px auto;
-  padding: 0 16px;
+  margin: 14px auto;
+  padding: 0 16px
 }
 
+.sf-services__section-title {
+  margin: 8px 0 4px;
+  color: var(--text);
+  font-size: 18px
+}
+
+.sf-services__muted {
+  color: var(--muted);
+  margin-bottom: 10px
+}
+
+/* lista */
 .sf-services__list {
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  gap: 14px
 }
 
 .sf-services__item {
-  border: 1px solid #e3e8ef;
-  border-radius: 10px;
-  padding: 14px 16px;
-  background: #fff;
-  box-shadow: 0 3px 6px rgba(0, 0, 0, .05);
-  transition: transform 0.1s ease, box-shadow 0.2s ease;
-  cursor: pointer;
+  display: grid;
+  grid-template-columns: 1.6fr 120px 180px;
+  gap: 16px;
+  align-items: center;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--card);
+  box-shadow: var(--shadow);
+  padding: 14px;
+  cursor: pointer
 }
 
 .sf-services__item:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 12px rgba(0, 0, 0, .08);
+  transform: translateY(-2px)
+}
+
+.sf-services__item--sk {
+  position: relative;
+  overflow: hidden
+}
+
+.sk {
+  background: #e9eef5;
+  border-radius: 8px
+}
+
+.sk--text {
+  height: 60px
+}
+
+.sk--price {
+  height: 18px;
+  width: 90px;
+  justify-self: end
+}
+
+.sk--img {
+  height: 110px;
+  border-radius: 10px
+}
+
+.sf-services__info {
+  min-width: 0
+}
+
+.sf-services__badge {
+  display: inline-block;
+  font-size: 12px;
+  padding: 4px 8px;
+  border-radius: 999px;
+  margin-bottom: 6px;
+  background: #fdecea;
+  color: #e74c3c
+}
+
+.sf-services__badge.is-on {
+  background: #e6f6f2;
+  color: #1abc9c
 }
 
 .sf-services__title {
+  margin: 0 0 6px;
   font-size: 16px;
-  color: #1b2a3a;
-  margin-bottom: 4px;
+  color: var(--text)
 }
 
 .sf-services__desc {
-  color: #6b7a8c;
+  margin: 0 0 8px;
+  color: var(--muted);
   font-size: 14px;
-  line-height: 1.4;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical
 }
 
+.sf-services__meta {
+  display: flex;
+  gap: 14px;
+  color: var(--muted);
+  font-size: 13px
+}
+
+.sf-services__price {
+  justify-self: end
+}
+
+.sf-services__chip {
+  background: #e9f0ff;
+  color: #2f5177;
+  font-weight: 700;
+  padding: 6px 10px;
+  border-radius: 999px;
+  font-size: 13px
+}
+
+.sf-services__img {
+  width: 180px;
+  height: 110px;
+  object-fit: cover;
+  border-radius: 10px
+}
+
+/* paginação */
 .sf-services__pager {
   display: flex;
-  justify-content: center;
-  align-items: center;
   gap: 8px;
-  margin-top: 20px;
+  justify-content: center;
+  margin: 16px 0
 }
 
-.sf-services__pager button {
-  padding: 8px 12px;
-  border: 1px solid #e3e8ef;
-  border-radius: 8px;
+.sf-services__pg-btn,
+.sf-services__pg-index {
+  border: 1px solid var(--border);
   background: #fff;
-  cursor: pointer;
-  font-size: 14px;
-  transition: background 0.2s ease;
+  color: var(--text);
+  border-radius: 10px;
+  padding: 8px 12px
 }
 
-.sf-services__pager button:hover {
-  background: #f0f3f9;
+.sf-services__pg-index.is-active {
+  background: var(--primary);
+  color: #fff;
+  border-color: var(--primary)
 }
 
-.sf-services__pager button:disabled {
-  opacity: 0.5;
-  cursor: not-allowed;
-}
-
-.sf-services__pager span {
-  color: #6b7a8c;
-  font-size: 14px;
-}
-
+/* msgs */
 .sf-services__empty {
-  padding: 14px;
-  border: 1px dashed #e3e8ef;
-  border-radius: 8px;
+  padding: 16px;
+  border: 1px dashed var(--border);
+  border-radius: 12px;
+  color: var(--muted)
+}
+
+.sf-services__error {
+  padding: 12px;
+  margin-bottom: 10px;
+  border: 1px solid #ffd1d1;
+  background: #fff1f1;
+  color: #b00020;
+  border-radius: 10px
+}
+
+/* link política */
+.sf-services__policy {
+  text-align: right;
+  margin-top: 12px
+}
+
+.sf-services__policy a {
   color: #6b7a8c;
-  text-align: center;
+  text-decoration: underline
+}
+
+/* ===== Modal ===== */
+.sf-modal {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 80
+}
+
+.sf-modal__backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, .45)
+}
+
+.sf-modal__panel {
+  position: relative;
   background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  box-shadow: 0 20px 64px rgba(0, 0, 0, .25);
+  width: min(720px, 92vw);
+  max-height: 90vh;
+  overflow: auto
+}
+
+.sf-modal__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--border)
+}
+
+.sf-modal__close {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 6px 10px;
+  cursor: pointer
+}
+
+.sf-modal__body {
+  padding: 16px
+}
+
+.sf-modal__status {
+  margin-bottom: 8px
+}
+
+.sf-modal__title {
+  margin: 2px 0 12px;
+  font-size: 20px
+}
+
+.sf-modal__img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin: 6px 0 12px
+}
+
+.sf-modal__desc {
+  color: var(--muted);
+  margin-bottom: 10px
+}
+
+.sf-modal__price {
+  font-weight: 800;
+  color: #2f5177;
+  margin: 6px 0 10px
+}
+
+.sf-modal__meta {
+  display: flex;
+  gap: 14px;
+  color: var(--muted);
+  font-size: 14px;
+  flex-wrap: wrap;
+  margin-bottom: 12px
+}
+
+.sf-modal__sub {
+  margin: 8px 0 6px
+}
+
+.sf-modal__contact {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 4px
+}
+
+.sf-modal__action {
+  margin-top: 14px;
+  padding: 10px 16px;
+  border-radius: 10px;
+  border: none;
+  background: #f05454;
+  color: #fff;
+  font-weight: 700;
+  cursor: pointer
+}
+
+/* responsivo */
+@media (max-width:900px) {
+  .sf-services__hero-inner {
+    grid-template-columns: 1fr
+  }
+
+  .sf-services__item {
+    grid-template-columns: 1fr
+  }
+
+  .sf-services__price {
+    justify-self: start
+  }
+
+  .sf-services__img {
+    width: 100%;
+    height: 180px
+  }
+
+  .sf-services__hero-art {
+    display: none;
+  }
 }
