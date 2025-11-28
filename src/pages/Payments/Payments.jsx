@@ -67,3 +67,20 @@ const handleCreatePayment = async () => {
     setLoading(false);
   }
 };
+
+const uptdadeStatus= async(Id, Status)=>{
+  try{
+    setLoading(true);
+    await fetch({API_URL}/{id}),{
+      method: "PUT",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({Status}),
+    };
+    await fetchPayments();
+  }catch (err){
+    console.error(err);
+  }finally{
+    setLoading(false);
+  }
+};
+
