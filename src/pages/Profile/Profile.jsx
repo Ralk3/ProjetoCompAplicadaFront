@@ -141,3 +141,145 @@ export default function Profile() {
       setSaving(false);
     }
   }
+  /** volta o formulário para os dados originais (efeito do botão Cancelar) */
+  function handleCancel() {
+    setForm({
+      nome: me?.nome || "",
+      sobrenome: me?.sobrenome || "",
+      celular: maskPhone(me?.celular || ""),
+      codigoMercadoPago: me?.codigoMercadoPago || "",
+      email: me?.email || "",
+      cpf: maskCPF(me?.cpf || ""),
+    });
+  }
+
+  if (loading) {
+    return (
+      <>
+        <HeaderPrivate />
+        <div className="sf-prof-page">
+          <p className="sf-muted">Carregando…</p>
+        </div>
+      </>
+    );
+  }
+
+  return (
+    <>
+      <HeaderPrivate />
+
+      {/* Faixa azul (full-bleed) com título e link “Voltar” */}
+      <section className="sf-head">
+        <div className="sf-head__inner">
+
+          <div className="sf-head__titles">
+            <h1>Perfil</h1>
+            <p>Atualize suas informações básicas.</p>
+          </div>
+        </div>
+      </section>
+
+      {/* Conteúdo */}
+      <div className="sf-prof-page">
+        <form className="sf-card sf-form" onSubmit={handleSubmit}>
+          <h3 className="sf-card-title">Informações do perfil</h3>
+
+          {/* Nome + Sobrenome */}
+          <div className="sf-grid-2">
+            <div className="sf-field">
+              <label>Nome</label>
+              <div className="sf-field__wrap">
+                <span className="sf-field__icon" aria-hidden="true">👤</span>
+                <input
+                  className="sf-input"
+                  value={form.nome}
+                  onChange={(e) => setForm((s) => ({ ...s, nome: e.target.value }))}
+                  placeholder="Seu nome"
+                />
+              </div>
+            </div>
+
+            <div className="sf-field">
+              <label>Sobrenome</label>
+              <div className="sf-field__wrap">
+                <span className="sf-field__icon" aria-hidden="true">👤</span>
+                <input
+                  className="sf-input"
+                  value={form.sobrenome}
+                  onChange={(e) => setForm((s) => ({ ...s, sobrenome: e.target.value }))}
+                  placeholder="Seu sobrenome"
+                />
+              </div>
+            </div>
+          </div>
+
+          {/* Celular */}
+          <div className="sf-field">
+            <label>Celular</label>
+            <div className="sf-field__wrap">
+              <span className="sf-field__icon" aria-hidden="true">📞</span>
+              <input
+                className="sf-input"
+                value={form.celular}
+                onChange={(e) =>
+                  setForm((s) => ({ ...s, celular: maskPhone(e.target.value) }))
+                }
+                placeholder="(11) 90000-0000"
+              />
+            </div>
+          </div>
+
+          {/* Código Mercado Pago */}
+          <div className="sf-field">
+            <label>Código Mercado Pago</label>
+            <div className="sf-field__wrap">
+              <span className="sf-field__icon" aria-hidden="true">🔗</span>
+              <input
+                className="sf-input"
+                value={form.codigoMercadoPago}
+                onChange={(e) =>
+                  setForm((s) => ({ ...s, codigoMercadoPago: e.target.value }))
+                }
+                placeholder="TESTE-123..."
+              />
+            </div>
+            <small className="sf-muted">
+              Use o código vinculado à sua conta do Mercado Pago.
+            </small>
+          </div>
+
+          {/* E-mail (readOnly) */}
+          <div className="sf-field">
+            <label>E-mail</label>
+            <div className="sf-field__wrap">
+              <span className="sf-field__icon" aria-hidden="true">✉️</span>
+              <input className="sf-input" value={form.email} readOnly />
+            </div>
+          </div>
+
+          {/* CPF (readOnly) */}
+          <div className="sf-field">
+            <label>CPF</label>
+            <div className="sf-field__wrap">
+              <span className="sf-field__icon" aria-hidden="true">🪪</span>
+              <input className="sf-input" value={form.cpf} readOnly />
+            </div>
+          </div>
+
+          {/* Ações */}
+          <div className="sf-form__actions">
+            <button
+              type="button"
+              className="sf-btn sf-btn--light"
+              onClick={handleCancel}
+            >
+              Cancelar
+            </button>
+            <button type="submit" className="sf-btn sf-btn--primary" disabled={saving}>
+              {saving ? "Salvando..." : "Salvar"}
+            </button>
+          </div>
+        </form>
+      </div>
+    </>
+  );
